@@ -1,6 +1,48 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Quote</h1>
+
 <p><%= @quote.content %></p>
+
+<h2>Comments</h2>
+
+  <%= form_for [@quote, @comment] do |f| %>
+
+      <% if f.object.errors.any? %>
+      <div class="alert alert-danger">
+        <strong>The following errors prevented saving:</strong>
+        <ul>
+          <% f.object.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :content %>
+      <%= f.text_field :content%>
+    </div>
+
+    <%= f.submit 'Add comment', class: 'btn btn-primary' %>
+
+  <% end %>
+  
+
+
+
+  <table>
+    <thead>
+      <th></td>
+    </thead>
+    <tbody>
+      <%= render @comments %>
+    </tbody>
+  </table>
+
+  
 
 <%= link_to 'Edit', edit_quote_path(@quote) %> |
 <%= link_to 'Back', quotes_path %>
+
+<%= console %>

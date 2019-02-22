@@ -1,0 +1,4 @@
+      <tr>
+        <td><%= comment.content %></td>
+        <td><%= link_to 'Delete', [@quote,comment], method: :delete, data: {confirm: "Are you sure?"}  %></td>
+      </tr>

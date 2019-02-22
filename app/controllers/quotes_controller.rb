@@ -10,6 +10,9 @@ class QuotesController < ApplicationController
   # GET /quotes/1
   # GET /quotes/1.json
   def show
+    # @quote = Quote.find(params[:id])
+    @comments = @quote.comments.order(created_at: :desc)
+    @comment = Comment.new
   end
 
   # GET /quotes/new
