@@ -1,24 +1,39 @@
-# README
+# W7D5 - Lecture
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Nested Resources
 
-Things you may want to cover:
+# typical show page for a quote
 
-* Ruby version
+`/quotes/4`
 
-* System dependencies
+# a typical list of comments
 
-* Configuration
+`/comments`
 
-* Database creation
+# comments of quote with id 4
 
-* Database initialization
+`/quotes/4/comments/`
 
-* How to run the test suite
+# add comments to my app
 
-* Services (job queues, cache servers, search engines, etc.)
+- create a Comment model with a migration
+- run the migration
+- set the routes (new, create)
+- Create a comments controller
+- Modify the show view of quote
 
-* Deployment instructions
+# routes for comments
 
-* ...
+- `/quotes/:quote_id/comments/new` Display the new comment form
+- `/quotes/:quote_id/comments` Post to create a new comment in the database
+- `/quotes/:quote_id/comments/:id/` Show page of a comment
+
+- Example of params for post `/quotes/:quote_id/comments`
+
+```ruby
+{"utf8"=>"✓", "authenticity_token"=>"XTwKY8aiz1042GtJy6T/tLYOnDdEJ4FBk0LlOdmGU8CwRP7Dql63iEbdDJh577zSeBveYvyagU3p93EIO7LW1A==", "comment"=>{"content"=>"Super quote"}, "commit"=>"Add comment", "controller"=>"comments", "action"=>"create", "quote_id"=>"4"}
+```
+
+- Delete a comment
+
+`DELETE /quotes/:quote_id/comments/:id`
